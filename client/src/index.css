@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+body {
+  background-color: #1a202c; 
+  color: #f7fafc; 
+  margin: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
