@@ -39,7 +39,11 @@ function App() {
       const res = await fetch(url, {
         method: editMode ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(editMode ? { id: editId, title, description, isCompleted } : { title, description, isCompleted }),
+        body: JSON.stringify(
+          editMode
+            ? { id: editId, title, description, isCompleted }
+            : { title, description, isCompleted }
+        ),
       });
       if (!res.ok) {
         const errText = await res.text();
@@ -134,7 +138,7 @@ function App() {
           >
             <div className="flex-grow">
               <h3 className="font-bold text-lg">
-                {todo.title} {todo.isCompleted && <span>(✔️)</span>}
+                {todo.title} {todo.isCompleted && <span>(Completed)</span>}
               </h3>
               <p className="text-gray-400">{todo.description}</p>
             </div>
@@ -155,6 +159,33 @@ function App() {
           </li>
         ))}
       </ul>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-center items-center gap-2 mt-4">
+        <button
+          onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+          className="px-3 py-1 bg-gray-700 text-white rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+          <button
+            key={page}
+            onClick={() => setCurrentPage(page)}
+            className={`px-3 py-1 rounded text-white ${currentPage === page ? 'bg-blue-600' : 'bg-gray-700'}`}
+          >
+            {page}
+          </button>
+        ))}
+        <button
+          onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}
+          className="px-3 py-1 bg-gray-700 text-white rounded disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }

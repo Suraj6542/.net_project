@@ -119,3 +119,4 @@ C:\Users\hp\OneDrive\Desktop\module7task\TodoApi\obj\Debug\net9.0\refint\TodoApi
 C:\Users\hp\OneDrive\Desktop\module7task\TodoApi\obj\Debug\net9.0\TodoApi.pdb
 C:\Users\hp\OneDrive\Desktop\module7task\TodoApi\obj\Debug\net9.0\TodoApi.genruntimeconfig.cache
 C:\Users\hp\OneDrive\Desktop\module7task\TodoApi\obj\Debug\net9.0\ref\TodoApi.dll
+C:\Users\hp\OneDrive\Desktop\module7task\TodoApi\obj\Debug\net9.0\TodoApi.sourcelink.json
